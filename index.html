@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="fr" dir="ltr" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hourriya</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Hourriya">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#F2F3F9" id="themeColor">
+<meta name="format-detection" content="telephone=no">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app">
+  <header class="top">
+    <div class="brand"><b>Hourriya</b><span lang="ar" dir="rtl">حرية</span></div>
+    <div class="top-end">
+      <span class="pill" id="samplePill" data-i18n="sample.pill" hidden></span>
+      <button type="button" class="icon-btn" data-go="reglages" data-i18n-aria="nav.settings">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2.8v2.4M12 18.8v2.4M2.8 12h2.4M18.8 12h2.4M5.5 5.5l1.7 1.7M16.8 16.8l1.7 1.7M5.5 18.5l1.7-1.7M16.8 7.2l1.7-1.7"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- LYOUM : le chiffre du jour et la date de liberté -->
+    <section class="view" data-view="lyoum">
+      <div class="card sample-card" id="sampleCard" data-zone hidden></div>
+      <div class="card notice-card" id="noticeCard" hidden></div>
+
+      <div class="today" id="todayCard">
+        <div class="today-eyebrow" data-i18n="today.eyebrow"></div>
+        <div class="today-num" id="todayNum"></div>
+        <div class="today-sub" id="todaySub"></div>
+        <div class="today-meta" id="todayMeta"></div>
+      </div>
+
+      <div class="hero">
+        <div class="hero-in">
+          <div class="eyebrow" data-i18n="hero.eyebrow"></div>
+          <div class="hero-date" id="heroDate"></div>
+          <div class="hero-sub" id="heroSub"></div>
+          <div class="hero-row"><span class="hpill" id="todayPill"></span><span class="hero-rest" id="heroRest"></span></div>
+          <div class="hbar" id="hbarWrap" role="img"><i id="hbar"></i></div>
+          <div class="hero-foot" id="heroFoot"></div>
+        </div>
+      </div>
+
+      <div class="qa-row">
+        <button type="button" class="qa" data-open="expense"><span class="ic loss"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg></span><span data-i18n="qa.expense"></span></button>
+        <button type="button" class="qa" data-open="renounce"><span class="ic gain"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v10m0 0-4-4m4 4 4-4"/><path d="M5 15v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3"/></svg></span><span data-i18n="qa.renounce"></span></button>
+        <button type="button" class="qa" data-open="check"><span class="ic acc"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12M6 21h12"/><path d="M8 3c0 4 4 5 4 9s-4 5-4 9M16 3c0 4-4 5-4 9s4 5 4 9"/></svg></span><span data-i18n="qa.check"></span></button>
+      </div>
+
+      <form class="card" id="sayForm" autocomplete="off">
+        <div class="card-head"><h2 class="h2" data-i18n="say.title"></h2></div>
+        <p class="card-sub" data-i18n="say.sub"></p>
+        <div class="say">
+          <input id="sayInput" type="text" enterkeyhint="done" autocapitalize="off" autocorrect="off" data-i18n-ph="say.placeholder" data-i18n-aria="say.aria">
+          <button type="submit" data-i18n-aria="say.submit"><svg class="i flip" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+        </div>
+        <div class="say-preview" id="sayPreview" aria-live="polite"></div>
+        <div class="examples" id="sayExamples"></div>
+      </form>
+
+      <div class="card" id="paceCard"></div>
+
+      <div class="card">
+        <div class="card-head"><h2 class="h2" data-i18n="feed.title"></h2></div>
+        <ul class="feed" id="feed"></ul>
+      </div>
+    </section>
+
+    <!-- DETTES -->
+    <section class="view" data-view="dettes" id="debtsView" hidden></section>
+
+    <!-- SAISONS : les grandes dépenses de l'année -->
+    <section class="view" data-view="saisons" id="seasonsView" hidden></section>
+
+    <!-- PLAN -->
+    <section class="view" data-view="plan" hidden>
+      <header>
+        <h1 class="h1" data-i18n="plan.title"></h1>
+        <p class="lede" data-i18n="plan.lede"></p>
+      </header>
+      <div id="planForm" class="view"></div>
+    </section>
+
+    <!-- RÉGLAGES -->
+    <section class="view" data-view="reglages" hidden>
+      <header><h1 class="h1" data-i18n="settings.title"></h1></header>
+      <div id="settingsForm" class="view"></div>
+    </section>
+  </main>
+</div>
+
+<nav class="tabs" data-i18n-aria="nav.label">
+  <div class="tabs-in">
+    <button type="button" class="tab" data-go="lyoum"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12"/><rect x="6" y="6" width="12" height="12" transform="rotate(45 12 12)"/></svg><span data-i18n="tab.lyoum"></span></button>
+    <button type="button" class="tab" data-go="dettes"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="m3 13 9 5 9-5"/></svg><span data-i18n="tab.debts"></span></button>
+    <button type="button" class="tab" data-go="saisons"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg><span data-i18n="tab.seasons"></span></button>
+    <button type="button" class="tab" data-go="plan"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg><span data-i18n="tab.plan"></span></button>
+  </div>
+</nav>
+
+<div class="scrim" id="scrim" hidden></div>
+
+<!-- Fiche de saisie : dépense, renoncement, « ça coûte combien ? » -->
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
+  <div class="grab"></div>
+  <div class="sheet-head">
+    <h2 class="h2" id="sheetTitle"></h2>
+    <button type="button" class="x-btn" data-close-sheet data-i18n-aria="sheet.close"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="seg three" role="group" data-i18n-aria="sheet.modeAria">
+    <button type="button" data-mode="expense" data-i18n="sheet.mode.expense"></button>
+    <button type="button" data-mode="renounce" data-i18n="sheet.mode.renounce"></button>
+    <button type="button" data-mode="check" data-i18n="sheet.mode.check"></button>
+  </div>
+  <label class="amount" for="amountInput"><input id="amountInput" type="text" inputmode="decimal" autocomplete="off" placeholder="0" data-i18n-aria="sheet.amountAria"><span data-i18n="currency"></span></label>
+  <input class="label-input" id="labelInput" type="text" autocomplete="off" enterkeyhint="done" data-i18n-aria="sheet.labelAria">
+  <div class="chips" id="chips" role="group" data-i18n-aria="sheet.catAria"></div>
+  <div class="preview" id="preview" aria-live="polite"></div>
+  <div class="actions" id="actions"></div>
+</div>
+
+<!-- Fiche de modification d'une grande dépense -->
+<div class="sheet" id="editSheet" role="dialog" aria-modal="true" aria-labelledby="editTitle" hidden>
+  <div class="grab"></div>
+  <div class="sheet-head">
+    <h2 class="h2" id="editTitle"></h2>
+    <button type="button" class="x-btn" data-close-sheet data-i18n-aria="sheet.close"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div id="editBody" class="fields"></div>
+</div>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="js/calc.js"></script>
+<script src="js/parse.js"></script>
+<script src="js/seed.js"></script>
+<script src="js/db.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

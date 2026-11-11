@@ -1,0 +1,17 @@
+{
+  "name": "Hourriya",
+  "short_name": "Hourriya",
+  "description": "Lyoum : ce que je peux dépenser aujourd'hui. Hourriya : le jour où je n'aurai plus de dettes.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F2F3F9",
+  "theme_color": "#4D41D3",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
